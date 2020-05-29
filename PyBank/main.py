@@ -23,7 +23,7 @@ with open (csvpath, 'r', encoding='utf-8') as csvfile:
         net = [int(row) for row in net]
         total_amount=sum(net) 
         print(row)
-        
+
 #average loop
 
     for i in range(0, len(net) -1):
@@ -52,3 +52,5 @@ print("Total Profit: $ " + str(total_amount))
 print("Average profit: $ " + str(average_final))
 print("Greatest Increase in Profits:  " + max_date + " ($" + str(max_prof) + ")")
 print("Greatest Decrease in Profits:  " + min_date + " ($" + str(min_prof) + ")")
+
+#output textfile

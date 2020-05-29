@@ -40,7 +40,7 @@ with open (csvpath, 'r', encoding='utf-8') as csvfile:
     total_votes3 = len(li)
 
     total_votes4 = len(otooley)
-#percentages for candidates
+#percentages for candidates, still need to do percentage for correy, li and o otooley
     percentage1 = total_votes1/total_votes_main
 
     winner=[total_votes1,total_votes2,total_votes3,total_votes4]
