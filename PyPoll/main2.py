@@ -2,7 +2,6 @@ import os
 import csv
 
 
-
 csvpath = os.path.join('Resources', 'election_data.csv')
 
 with open (csvpath, 'r', encoding='utf-8') as csvfile:
@@ -29,7 +28,7 @@ with open (csvpath, 'r', encoding='utf-8') as csvfile:
         elif(row[2] == "Li"):
             li.append(row[2])
         elif(row[2] == "O'Tooley"):
-            otooley.append(row[2])
+            otooley.append(row[2])   
 
     total_votes_main=len(total_votes)
     
@@ -40,24 +39,55 @@ with open (csvpath, 'r', encoding='utf-8') as csvfile:
     total_votes3 = len(li)
 
     total_votes4 = len(otooley)
-#percentages for candidates, still need to do percentage for correy, li and o otooley
+
+#percentages for candidates
+
     percentage1 = total_votes1/total_votes_main
+    percentage1 = ("{:.2%}".format(percentage1))
+    
+    percentage2 = total_votes2/total_votes_main
+    percentage2 = ("{:.2%}".format(percentage2))
+    
+    percentage3 = total_votes3/total_votes_main
+    percentage3 = ("{:.2%}".format(percentage3))
+    
+    percentage4 = total_votes4/total_votes_main
+    percentage4 = ("{:.2%}".format(percentage4))
+
+#winner criteria
 
     winner=[total_votes1,total_votes2,total_votes3,total_votes4]
+    
     final_winner= max(winner)
-#print winner name, do li and otooley
+
+#winner name
+
     if final_winner == total_votes1: 
-    winner_name= "Khan" 
+        winner_name= "Khan" 
     elif final_winner == total_votes2:
-    winner_name= "Correy" 
+        winner_name= "Correy" 
+    elif final_winner == total_votes3:
+        winner_name= "Li" 
+    elif final_winner == total_votes4:
+        winner_name= "O'Tooley" 
 
 #print statement
 
-#print("Election Results")
-#print("Total Votes: " + str(total_votes_main))
-#print("Khan: " + str(total_votes1))
-#print("Correy: " + str(total_votes2))
-#print("Li: " + str(total_votes3))
-#print("O'Tooley: " + str(total_votes4))
-#print("Winner: winner_name))
-#
+print("Election Results")
+print("Total Votes: " + str(total_votes_main))
+print("Khan: " + str(percentage1) + " " + str(total_votes1))
+print("Correy: " + str(percentage2) + " " + str(total_votes2))
+print("Li: " + str(percentage3) + " " + str(total_votes3))
+print("O'Tooley: " + str(percentage4) + " " + str(total_votes4))
+print("Winner: " + winner_name)
+
+#output textfile
+f = open('PyPoll Results.txt', 'w')
+f.write("Election Results")
+f.write("\nTotal Votes: " + str(total_votes_main))
+f.write("\nKhan: " + str(percentage1) + " " + str(total_votes1))
+f.write("\nCorrey: " + str(percentage2) + " " + str(total_votes2))
+f.write("\nLi: " + str(percentage3) + " " + str(total_votes3))
+f.write("\nO'Tooley: " + str(percentage4) + " " + str(total_votes4))
+f.write("\nWinner: " + winner_name)
+f.close()

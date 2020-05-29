@@ -1,7 +1,7 @@
 import os
 import csv
 
-
+#import and read csv
 
 csvpath = os.path.join('Resources', 'Pybank.csv')
 
@@ -12,7 +12,6 @@ with open (csvpath, 'r', encoding='utf-8') as csvfile:
 
     revenue=[]
     date=[]
-    count=[]
     net=[]
     average=[]
 
@@ -22,7 +21,6 @@ with open (csvpath, 'r', encoding='utf-8') as csvfile:
         net = revenue
         net = [int(row) for row in net]
         total_amount=sum(net) 
-        print(row)
 
 #average loop
 
@@ -44,7 +42,7 @@ with open (csvpath, 'r', encoding='utf-8') as csvfile:
 
     min_date = date[average.index(min_prof)]
 
-#print statement
+#print statement, need to update greatest increase/decrease profits
 
 print("Financial Analysis")
 print("Total Months: " + str(total_months))
@@ -54,3 +52,12 @@ print("Greatest Increase in Profits:  " + max_date + " ($" + str(max_prof) + ")"
 print("Greatest Decrease in Profits:  " + min_date + " ($" + str(min_prof) + ")")
 
 #output textfile
+
+f = open('PyBank Results.txt', 'w')
+f.write("Financial Analysis")
+f.write("\nTotal Months: " + str(total_months))
+f.write("\nTotal Profit: $ " + str(total_amount))
+f.write("\nAverage profit: $ " + str(average_final))
+f.write("\nGreatest Increase in Profits:  " + max_date + " ($" + str(max_prof) + ")")
+f.write("\nGreatest Decrease in Profits:  " + min_date + " ($" + str(min_prof) + ")")
+f.close()
