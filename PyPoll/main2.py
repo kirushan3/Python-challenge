@@ -1,6 +1,7 @@
 import os
 import csv
 
+#import and read csv
 
 csvpath = os.path.join('Resources', 'election_data.csv')
 
@@ -29,6 +30,8 @@ with open (csvpath, 'r', encoding='utf-8') as csvfile:
             li.append(row[2])
         elif(row[2] == "O'Tooley"):
             otooley.append(row[2])   
+
+#totals for candidates
 
     total_votes_main=len(total_votes)
     
@@ -75,19 +78,19 @@ with open (csvpath, 'r', encoding='utf-8') as csvfile:
 
 print("Election Results")
 print("Total Votes: " + str(total_votes_main))
-print("Khan: " + str(percentage1) + " " + str(total_votes1))
-print("Correy: " + str(percentage2) + " " + str(total_votes2))
-print("Li: " + str(percentage3) + " " + str(total_votes3))
-print("O'Tooley: " + str(percentage4) + " " + str(total_votes4))
+print("Khan: " + str(percentage1) + " (" + str(total_votes1) + ")")
+print("Correy: " + str(percentage2) + " (" + str(total_votes2) + ")")
+print("Li: " + str(percentage3) + " (" + str(total_votes3) + ")")
+print("O'Tooley: " + str(percentage4) + " (" + str(total_votes4) + ")")
 print("Winner: " + winner_name)
 
 #output textfile
 f = open('PyPoll Results.txt', 'w')
 f.write("Election Results")
 f.write("\nTotal Votes: " + str(total_votes_main))
-f.write("\nKhan: " + str(percentage1) + " " + str(total_votes1))
-f.write("\nCorrey: " + str(percentage2) + " " + str(total_votes2))
-f.write("\nLi: " + str(percentage3) + " " + str(total_votes3))
-f.write("\nO'Tooley: " + str(percentage4) + " " + str(total_votes4))
+f.write("\nKhan: " + str(percentage1) + " (" + str(total_votes1) + ")")
+f.write("\nCorrey: " + str(percentage2) + " (" + str(total_votes2) + ")")
+f.write("\nLi: " + str(percentage3) + " (" + str(total_votes3) + ")")
+f.write("\nO'Tooley: " + str(percentage4) + " (" + str(total_votes4) + ")")
 f.write("\nWinner: " + winner_name)
 f.close()

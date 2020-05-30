@@ -26,7 +26,9 @@ with open (csvpath, 'r', encoding='utf-8') as csvfile:
 
     for i in range(0, len(net) -1):
         average.append(int(net[i+1])-int(net[i]))
-        average_final=sum(average)/len(average)
+        average_final= sum(average)/len(average)
+        average_final = round(average_final,2)
+        
 
 #analysis for total months, total amount, average amount, max prof, min prof
 
@@ -38,9 +40,9 @@ with open (csvpath, 'r', encoding='utf-8') as csvfile:
 
     min_prof = min(average)
 
-    max_date = date[average.index(max_prof)]
+    max_date = date[average.index(max_prof)+1]
 
-    min_date = date[average.index(min_prof)]
+    min_date = date[average.index(min_prof)+1]
 
 #print statement, need to update greatest increase/decrease profits
 
