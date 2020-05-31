@@ -44,7 +44,7 @@ with open (csvpath, 'r', encoding='utf-8') as csvfile:
 
     min_date = date[average.index(min_prof)+1]
 
-#print statement, need to update greatest increase/decrease profits
+#print statement
 
 print("Financial Analysis")
 print("Total Months: " + str(total_months))
